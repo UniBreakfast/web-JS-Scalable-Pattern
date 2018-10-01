@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=UTF-8>
+  <title>placeholder page</title>
+  <script src=JS/hub.js></script>
+  <script src=JS/dt.js></script>
+  <style>
+/********************************************************/
+.btn-mainmenu {
+  background: lightgrey;
+  grid-area: button1;
+}
+
+.cont-user-info {
+  background: lime;
+  grid-area: userinfo;
+}
+
+.btn-sidebar {
+  display: none;
+  background: lightgrey;
+  grid-area: button2;
+}
+
+.cont-table {
+  background: yellow;
+  grid-area: table;
+}
+
+.cont-sidebar {
+  background: lightgrey;
+  grid-area: sidebar;
+}
+body {
+  font-family: "Trebuchet MS";
+  height: 100vh;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 60px 1fr 240px;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "button1 userinfo sidebar"
+    " table   table   sidebar";
+}
+
+@media only screen and (max-width: 640px)  {
+  body {
+    grid-template-columns: 60px 1fr 60px;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas:
+      "button1 userinfo button2"
+       "table   table    table";
+  }
+  .cont-sidebar {
+    display: none;
+    position: absolute;
+    top: 0; right: 0;
+    border: solid white 10px;
+    box-sizing: border-box;
+    width: 260px;
+    height: 100%;
+  }
+  .btn-sidebar { display: block }
+}
+/********************************************************/
+  </style>
+</head>
+
+<body>
+  <button  class='btn-mainmenu'>  menu  </button>
+  <button  class='btn-sidebar'>  sidebar </button>
+  <header  class='cont-user-info'> top panel with user info </header>
+
+  <section class='cont-table'>    main space for data table  </section>
+  <aside   class='cont-sidebar'> sidebar with additional info </aside>
+
+  <script>
+  (()=>{
+	var btn_sb = document.querySelector('.btn-sidebar'),
+      cont_sb = document.querySelector('.cont-sidebar').style;
+	btn_sb.onclick = ()=>{
+      cont_sb.display = 'block';
+      setTimeout(()=>document.onclick = (e)=>{
+        if(e.target.className != 'cont-sidebar')
+          cont_sb.display = null && document.onclick = null;
+      }, 1)
+	}
+  })();
+  </script>
+
+  <script src=JS/ac.js></script>
+
+</body>
+</html>
