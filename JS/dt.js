@@ -63,3 +63,16 @@ const dt = (() => {
   dt.add_route = add_route.bind(dt);
   return dt
 })();
+
+/*
+
+Объект dt с методами:
+  way
+  read
+  write
+имеющими доступ к объектам:
+  ways
+
+
+
+*/
