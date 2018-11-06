@@ -71,6 +71,7 @@ body {
 </head>
 
 <body>
+  <button id=ura> УРА! </button>
   <button  class='btn-mainmenu'>  menu  </button>
   <button  class='btn-sidebar'>  sidebar </button>
   <header  class='cont-user-info'> top panel with user info </header>
@@ -86,7 +87,8 @@ body {
       cont_sb.display = 'block';
       setTimeout(()=>document.onclick = (e)=>{
         if(e.target.className != 'cont-sidebar')
-          cont_sb.display = null && document.onclick = null;
+          cont_sb.display = null;
+          document.onclick = null;
       }, 1)
 	}
   })();

@@ -29,7 +29,7 @@ const hub = (() => {
     return this
   }
 
-    // list registered event subscriptions or callback handlers for a certain event
+    // list registered event subscriptions or callback handlers for events
   const list = (e_name) => {
     if (e_name) return subs[e_name] || 'none';
     else return Object.keys(subs)
